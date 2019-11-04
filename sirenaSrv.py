@@ -18,8 +18,11 @@ def tg():
 		else:
 			logging.error("Invalid sirena token in request data. Check sirena token config in stngs.py and your sirena client config")
 			return "read log"
-	except:
-		logging.error("No sirena token in request data. Check sirena token config in stngs.py and your sirena client config")
+	except Exception as e:
+		if 'token' not in request.json.keys():
+			logging.error("No sirena token in request data. Check sirena token config in stngs.py and your sirena client config")
+		else:
+			logging.error(e)
 		return "read log"
 
 
