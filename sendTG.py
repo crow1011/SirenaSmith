@@ -1,15 +1,15 @@
 import telebot
-import stngs
+import stngs, checkconfig
+conf = checkconfig.getconf()
 
-ip = '127.0.0.1'
-port = '9050'
 
-telebot.apihelper.proxy = {
-  'https': 'socks5://{}:{}'.format(ip,port)
-}
-token = stngs.tgstngs()['token']
-chatid = stngs.tgstngs()['chatid']
+
 def SendTG(msg):
+	telebot.apihelper.proxy = {
+	'https': 'socks5://{}:{}'.format(conf['proxy']['ip'],conf['proxy']['port'])
+	}
+	token = conf['tg']['bottoken']
+	chatid = conf['tg']['chatid']
 	tb = telebot.TeleBot(token)
 	tb.send_message(chatid, msg)
 

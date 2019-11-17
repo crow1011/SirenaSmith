@@ -1,0 +1,4 @@
+*.pyc
+clents/*/*.pyc
+venv/
+*log
