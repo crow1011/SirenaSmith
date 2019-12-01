@@ -1,6 +1,6 @@
 from flask import Flask, request
 import logging
-import sendTG, stngs, checkconfig
+import sendTG, checkconfig
 import hashlib
 
 
@@ -9,7 +9,7 @@ logging.basicConfig(filename="sirena.log", level=logging.ERROR, format='%(asctim
 conf=checkconfig.getconf()
 
 
-@app.route('/tg', methods=['POST'])
+@app.route('/', methods=['POST'])
 def tg():
 	try:
 		data = request.json
@@ -26,8 +26,11 @@ def tg():
 		else:
 			logging.error(e)
 		return "read server log"
+@app.route('/status')
+def status():
+	return '''ok'''
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host=conf['server']['ip'])
+    app.run(debug=True, host=conf['server']['ip'], port=conf['server']['port'])

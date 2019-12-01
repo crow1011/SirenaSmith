@@ -1,4 +1,6 @@
 *.pyc
+*.conf
 clents/*/*.pyc
+clents/*/*.conf
 venv/
 *log

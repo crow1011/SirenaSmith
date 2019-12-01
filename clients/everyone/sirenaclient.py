@@ -5,6 +5,7 @@ import hashlib
 import logging
 import urllib3
 import json
+import requests
 
 logging.basicConfig(filename="sirenaclient.log", level=logging.ERROR, format='%(asctime)s;%(levelname)s;%(message)s')
 conf = checkclientconfig.getconf()
@@ -16,13 +17,17 @@ encoded_body = json.dumps({
         'alert':{'tg':conf['alert']['tg']}
     })
 
-http = urllib3.PoolManager()
 
-r = http.request('POST', conf['server']['host'],
-                 headers={'Content-Type': 'application/json'},
-                 body=encoded_body)
-if r.status!='200':
-	logging.error(r.status)
+http = urllib3.PoolManager()
+try:
+	r = http.request('POST', conf['server']['host'],
+	                 headers={'Content-Type': 'application/json'},
+	                 body=encoded_body)
+	if r.status!=200:
+		logging.error('Send error')
+except KeyError as err:
+	logging.error('No available Sirena servers')
+
 
 
 
