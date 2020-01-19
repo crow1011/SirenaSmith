@@ -7,8 +7,9 @@ import urllib3
 import json
 import requests
 
-logging.basicConfig(filename="sirenaclient.log", level=logging.ERROR, format='%(asctime)s;%(levelname)s;%(message)s')
+logging.basicConfig(filename="srnzabbix.log", level=logging.ERROR, format='%(asctime)s;%(levelname)s;%(message)s')
 conf = checkclientconfig.getconf()
+conf['server']['host'] = conf['server']['host']+'zabbix/'
 server_token=hashlib.md5(conf['server']['token'].encode('utf-8')).hexdigest()
 
 encoded_body = json.dumps({
@@ -26,7 +27,7 @@ try:
 	if r.status!=200:
 		logging.error('Send error')
 except KeyError as err:
-	logging.error('No available Sirena servers'+str(conf))
+	logging.error('No available Sirena servers'+str(conf) + '\n' + err + '\n')
 
 
 

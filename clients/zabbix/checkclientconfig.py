@@ -10,7 +10,7 @@ def check(url):
 
 def getconf():
 	parser = configparser.ConfigParser()
-	parser.read_file(open('sirenaclient.conf'))
+	parser.read_file(open('srnzabbix.conf'))
 
 	conf = {}
 	for section in parser.sections():

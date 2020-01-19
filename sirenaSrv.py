@@ -19,13 +19,33 @@ def tg():
 				return "tg"
 		else:
 			logging.error("Invalid sirena token in request data. Check sirena token config in sirena.conf and your sirena client config")
-			return "read log"
+			return "read server log"
 	except Exception as e:
 		if 'token' not in request.json.keys():
 			logging.error("No sirena token in request data. Check sirena token config in sirena.conf and your sirena client config")
 		else:
 			logging.error(e)
 		return "read server log"
+
+
+@app.route('/zabbix/', methods=['POST'])
+def zabbix():
+	try:
+		data = request.json
+		if request.json['token']==hashlib.md5(conf['server']['token'].encode('utf-8')).hexdigest():
+			if data['alert']['tg']=='True':
+				sendTG.SendTG(request.json['msg'])
+				return "tg"
+		else:
+			logging.error("Invalid sirena token in request data. Check sirena token config in sirena.conf and your sirena client config")
+			return "read server log"
+	except Exception as e:
+		if 'token' not in request.json.keys():
+			logging.error("No sirena token in request data. Check sirena token config in sirena.conf and your sirena client config")
+		else:
+			logging.error(e)
+		return "read server log"
+
 @app.route('/status')
 def status():
 	return '''ok'''
