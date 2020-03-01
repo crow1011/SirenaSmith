@@ -4,9 +4,10 @@ ip = 127.0.0.1
 port = 5000
 
 [tg]
-bottoken = set bot token
-chatid = set your telegram chat id
+bottoken = 
+chatid = 
 
 [proxy]
+proxy=True
 ip = 127.0.0.1
 port = 9050
