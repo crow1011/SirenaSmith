@@ -1,0 +1,4 @@
+hashlib
+logging
+requests
+configparser

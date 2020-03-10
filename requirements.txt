@@ -2,6 +2,6 @@ flask
 urllib3
 configparser
 pysocks
-requests==2.18.4
+requests==2.23.0
 pyTelegramBotAPI
 gunicorn
