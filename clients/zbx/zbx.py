@@ -28,7 +28,7 @@ def check_alive(servers):
             else:
                 SIRENA_PROBLEMS.append(server+'STATUS_CODE:'+response.status_code)
         except Exception as e:
-            SIRENA_PROBLEMS.append(server+'PROBLEM: '+str(e))
+            SIRENA_PROBLEMS.append(server+' PROBLEM: '+str(e))
             continue
     min = 666
     sort_alives = []
@@ -51,15 +51,14 @@ def send_msg(data, url):
     return response.status_code
 
 def main():
-    data = {'mesage':str(sys.argv[1])}
-    data['sirena_problems'] = SIRENA_PROBLEMS
     conf = get_conf('zbx.yaml')
+    data = {'message':str(sys.argv[1])}
+    data['sirena_problems'] = SIRENA_PROBLEMS
+    data['alerters'] = conf['alerters']
     alives = check_alive(conf['servers'])
-    print(alives)
     for alive in alives:
         response_code = send_msg(data, alive[0])
         if response_code == 200:
-            print(alive)
             break
 
 

@@ -3,3 +3,5 @@
 clents/*/*.pyc
 venv/
 *log
+*/*.yaml
+.*/*

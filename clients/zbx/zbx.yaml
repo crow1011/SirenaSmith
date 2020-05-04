@@ -1,11 +1,10 @@
 servers:
   - "http://127.0.0.1:5000/input/zabbix"
   - "http://127.0.0.1:5001/input/zabbix"
-  - "http://127.0.0.1:5002/input/zabbix"
+#  - "http://127.0.0.1:5002/input/zabbix"
 alerters:
   tg:
     enable: True
-    default_chat_id: '123'
 
 secret:
   key: 123456
