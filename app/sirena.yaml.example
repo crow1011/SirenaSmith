@@ -1,0 +1,18 @@
+sirena:
+  name: Sirena1
+server:
+  host: "127.0.0.1"
+  port: 5000
+  debug: True
+alerters:
+  tg:
+    enable: True
+    api_key: "123456789:AAAaaAAAAAaAAaaaAaaaA"
+    default_send_id: '123456'
+    proxy:
+      enable: True
+      addr: 'socks5://localhost:9050'
+logger:
+  enable: True
+  level: debug #debug,info,warning,error
+  log_path: '/tmp/sirenasrv.log'
