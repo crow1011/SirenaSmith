@@ -5,6 +5,7 @@ logger=sirena_logger.get_logger()
 
 
 def tg(message, send_to, api_key, proxy='None'):
+    logger.debug('TG send message' + str(message))
     try:
         bot = telebot.TeleBot(api_key)
         apihelper.proxy = {'https': proxy}

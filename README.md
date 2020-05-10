@@ -18,7 +18,7 @@ Methods supported:
 **Work logic**
 ![Sirena](README/Sirena.png)
 
-**Send alerts variables**
+**Send alerts ways**
 ![Sirena](README/alert_way_en.png)
 
 

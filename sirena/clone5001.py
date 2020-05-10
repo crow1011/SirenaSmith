@@ -12,7 +12,7 @@ def input_zabbix():
         return 'ok'
     if request.method == 'POST':
         status = sirena_data.analyzer(request.json, conf)
-        return jsonify({'status': 'error'})
+        return jsonify({'status': status})
 
 
 if __name__ == '__main__':

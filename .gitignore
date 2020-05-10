@@ -6,5 +6,5 @@ venv/
 */*.yaml
 .*/*
 *.yaml
-app/sirena.yaml
+sirena/sirena.yaml
 clients/zbx/*.heap
