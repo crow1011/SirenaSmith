@@ -5,6 +5,8 @@ servers:
 alerters:
   tg:
     enable: True
+  sirena_manager:
+    enable: True
 
 secret:
   key: '123456'

@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import sirena_data, sirena_config, sirena_alerters, sirena_logger
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__)
 conf = sirena_config.get_conf()
 logger = sirena_logger.get_logger()
 
