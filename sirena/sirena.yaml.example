@@ -4,6 +4,12 @@ server:
   host: "127.0.0.1"
   port: 5000
   debug: True
+message:
+  problems: True
+  try_datetime: True
+  send_datetime: True
+  sirena_name: True
+  datetime_format: '%d-%m-%Y %H:%M:%S'
 alerters:
   tg:
     enable: True
@@ -12,6 +18,11 @@ alerters:
     proxy:
       enable: True
       addr: 'socks5://localhost:9050'
+  sirena_manager:
+    enable: True
+    host: "http://127.0.0.1:5000"
+    api: "39802830831bed188884e193d8465226" #get on sirena manager
+
 logger:
   enable: True
   level: debug #debug,info,warning,error

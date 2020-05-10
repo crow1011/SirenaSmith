@@ -6,7 +6,7 @@ import sys
 import logging
 from datetime import datetime
 
-sys.argv.append('1no message')
+sys.argv.append('no message')
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
 SIRENA_PROBLEMS = []
