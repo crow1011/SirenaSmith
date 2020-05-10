@@ -19,6 +19,6 @@ Methods supported:
 ![Sirena](README/Sirena.png)
 
 **Send alerts ways**
-![Sirena](README/alert_way_en.png)
+![Sirena](/tmp/*)
 
 
