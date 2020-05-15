@@ -1,6 +1,7 @@
 servers:
   - "http://127.0.0.1:5000/input/zabbix"
   - "http://127.0.0.1:5001/input/zabbix"
+  - "http://192.168.1.152:5000/input/zabbix"
 #  - "http://127.0.0.1:5002/input/zabbix"
 alerters:
   tg:

@@ -1,9 +1,9 @@
 sirena:
-  name: Sirena1
+  name: Sirena1 #require
 server:
   host: "127.0.0.1"
   port: 5000
-  debug: True
+  debug: False
 message:
   problems: True
   try_datetime: True
@@ -13,10 +13,10 @@ message:
 alerters:
   tg:
     enable: True
-    api_key: "123456789:AAAaaAAAAAaAAaaaAaaaA"
-    default_send_id: '123456'
+    api_key: "123456789:AAAaaAAAAAaAAaaaAaaaA" #require
+    default_send_id: '123456' #require
     proxy:
-      enable: True
+      enable: False
       addr: 'socks5://localhost:9050'
   sirena_manager:
     enable: True
@@ -24,6 +24,5 @@ alerters:
     api: "39802830831bed188884e193d8465226" #get on sirena manager
 
 logger:
-  enable: True
-  level: debug #debug,info,warning,error
+  level: info #debug,info,warning,error
   log_path: '/tmp/sirenasrv.log'

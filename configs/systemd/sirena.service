@@ -1,0 +1,13 @@
+[Unit]
+Description=Sirena alerts server
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/SirenaSmith/sirena/
+Environment="PATH=/opt/SirenaSmith/sirena/venv/bin"
+ExecStart=/opt/SirenaSmith/sirena/venv/bin/gunicorn --workers 3 --bind unix:sirena.sock -m 007 sirenaSrv:app
+
+[Install]
+WantedBy=multi-user.target

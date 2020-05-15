@@ -33,6 +33,7 @@ def get_logger(conf):
     return logger
 
 
+
 def get_conf(config):
     path = BASEDIR + '/' + config
     with open(path) as f:
@@ -136,4 +137,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception:
+        logger.exception('#Exceprion')
