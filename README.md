@@ -12,6 +12,8 @@ Methods supported:
 - [x] **Telegram alerter**
 - [ ] **Mail alerter**
 - [ ] **Slack Alerter**
+- [ ] **ELK**
+- [ ] **TheHive alerter**
 - [ ] **HTTP custom alerter**
 
 

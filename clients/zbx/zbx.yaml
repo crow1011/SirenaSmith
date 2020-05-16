@@ -1,8 +1,6 @@
 servers:
   - "http://127.0.0.1:5000/input/zabbix"
-  - "http://127.0.0.1:5001/input/zabbix"
-  - "http://192.168.1.152:5000/input/zabbix"
-#  - "http://127.0.0.1:5002/input/zabbix"
+  - "http://127.0.0.1:5000/input/zabbix"
 alerters:
   tg:
     enable: True
@@ -10,8 +8,8 @@ alerters:
     enable: True
 
 secret:
-  key: '123456'
-  salt: '654321'
+  key: '123456' #required
+  salt: '654321' #required
 
 servers_problem:
   enable: True
@@ -23,4 +21,4 @@ heap:
 
 logger:
   log_path: "/tmp/zbx_sirena.log"
-  level: debug #info, denug, warning, error
+  level: info #info, denug, warning, error

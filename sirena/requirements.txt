@@ -4,3 +4,4 @@ pyTelegramBotApi
 gunicorn
 pyyaml
 wheel
+pysocks

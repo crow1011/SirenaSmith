@@ -1,11 +1,14 @@
-cd /opt/
-sudo git clone https://github.com/crow1011/SirenaSmith.git
-cd SirenaSmith/sirena/
-sudo virtualenv -p /usr/bin/python3 venv
+virtualenv -p /usr/bin/python3 venv
 source venv/bin/activate
-sudo venv/bin/pip3 install -r requirements.txt
-sudo mv sirena.yaml.example sirena.yaml
-
-sudo mkdir /var/log/sirena
-sudo chown -R www-data:www-data /opt/SirenaSmith/
-sudo chown -R www-data:www-data /var/log/sirena/
+venv/bin/pip3 install -r requirements.txt
+deactivate
+mkdir /etc/sirena
+mkdir /var/log/sirena
+mv /etc/sirena/sirena.yaml /etc/sirena/sirena.yaml.save
+mv /opt/SirenaSmith/sirena/sirena.yaml.example /etc/sirena/sirena.yaml
+cp /opt/SirenaSmith/configs/systemd/sirena.service /etc/systemd/system/sirena.service
+mv /etc/nginx/conf.d/sirena.conf /etc/nginx/conf.d/sirena.conf.save
+cp /opt/SirenaSmith/configs/nginx/sirena.conf /etc/nginx/conf.d/sirena.conf
+chown -R www-data:www-data /opt/SirenaSmith/
+chown -R www-data:www-data /var/log/sirena/
+chown -R www-data:www-data /etc/sirena/

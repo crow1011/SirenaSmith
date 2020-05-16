@@ -81,7 +81,6 @@ def send_msg(data, url):
 
 def check_heap(conf):
     heap_path = BASEDIR + '/' + conf['heap']['heap_file']
-    print(heap_path)
     with open(heap_path, 'r') as f:
         heap = f.read().split('\n')
         if len(heap) != 0:
@@ -125,7 +124,6 @@ def main():
     not_send = True
     for alive in alives:
         response_status = send_msg(data, alive[0])
-        print(response_status)
         if response_status == 'done':
             not_send = False
             if check_heap(conf):
@@ -140,4 +138,4 @@ if __name__ == '__main__':
     try:
         main()
     except Exception:
-        logger.exception('#Exceprion')
+        logger.exception('#Exceprion ')
