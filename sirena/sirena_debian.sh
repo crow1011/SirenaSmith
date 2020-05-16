@@ -12,3 +12,4 @@ cp /opt/SirenaSmith/configs/nginx/sirena.conf.example /etc/nginx/conf.d/sirena.c
 chown -R www-data:www-data /opt/SirenaSmith/
 chown -R www-data:www-data /var/log/sirena/
 chown -R www-data:www-data /etc/sirena/
+nginx -t
