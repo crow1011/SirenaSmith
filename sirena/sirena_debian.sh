@@ -5,7 +5,7 @@ deactivate
 mkdir /etc/sirena
 mkdir /var/log/sirena
 mv /etc/sirena/sirena.yaml /etc/sirena/sirena.yaml.save
-mv /opt/SirenaSmith/sirena/sirena.yaml.example /etc/sirena/sirena.yaml
+cp /opt/SirenaSmith/sirena/sirena.yaml.example /etc/sirena/sirena.yaml
 cp /opt/SirenaSmith/configs/systemd/sirena.service.example /etc/systemd/system/sirena.service
 mv /etc/nginx/conf.d/sirena.conf /etc/nginx/conf.d/sirena.conf.save
 cp /opt/SirenaSmith/configs/nginx/sirena.conf.example /etc/nginx/conf.d/sirena.conf
