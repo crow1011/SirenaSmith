@@ -1,0 +1,8 @@
+server {
+    listen 5000;`
+    server_name your_domain www.your_domain;
+
+    location / {
+        proxy_pass http://unix:/opt/SirenaSmith/sirena/sirena.sock;
+    }
+}
