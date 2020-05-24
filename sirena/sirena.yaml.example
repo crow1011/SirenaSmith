@@ -26,4 +26,4 @@ alerters:
 
 logger:
   level: info #debug,info,warning,error
-  log_path: '/var/log/sirenasrv.log'
+  log_path: '/var/log/sirena/sirenasrv.log'
