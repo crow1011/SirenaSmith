@@ -18,9 +18,9 @@ Methods supported:
 
 
 **Work logic**
-![Sirena](../content/SirenaSmith/img/Sirena.png)
+![Sirena](https://github.com/crow1011/content/blob/master/SirenaSmith/img/Sirena.png)
 
 **Send alerts ways**
-![Sirena](../content/SirenaSmith/img/alert_way_en.png)
+![Sirena](https://github.com/crow1011/content/blob/master/SirenaSmith/img/alert_way_en.png)
 
 
