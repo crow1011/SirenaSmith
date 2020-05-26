@@ -1,9 +1,12 @@
 ## Sirena
 Decentralized alert system.
+
+![Install guide](https://github.com/crow1011/SirenaSmith/wiki/install-guide)
+
 Methods supported: 
 
 **Input**
-- [x] **Zabbix-script client**
+- [x] **Zabbix-script client** en|![ru](https://github.com/crow1011/SirenaSmith/wiki/Zabbix-script-client)
 - [ ] **HTTP-script client**
 - [ ] **Syslog-script client**
 - [ ] **TCP/UDP client**

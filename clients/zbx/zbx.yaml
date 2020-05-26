@@ -1,6 +1,6 @@
 servers:
   - "http://127.0.0.1:5000/input/zabbix"
-  - "http://127.0.0.1:5000/input/zabbix"
+#  - "http://127.0.0.1:5001/input/zabbix"
 alerters:
   tg:
     enable: True
@@ -20,5 +20,5 @@ heap:
   max_strings: -1
 
 logger:
-  log_path: "/tmp/zbx_sirena.log"
+  log_path: "zbx_sirena.log"
   level: info #info, denug, warning, error

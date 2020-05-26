@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import json
 import requests
 import yaml
@@ -13,7 +14,7 @@ SIRENA_PROBLEMS = []
 
 
 def get_logger(conf):
-    log_file = conf['logger']['log_path']
+    log_file = BASEDIR + '/' + conf['logger']['log_path']
     logger = logging.getLogger(__name__)
     # set logging level
     if conf['logger']['level'] == 'debug':
