@@ -17,15 +17,14 @@ def get_logger(conf):
     log_file = BASEDIR + '/' + conf['logger']['log_path']
     logger = logging.getLogger(__name__)
     # set logging level
-    if conf['logger']['level'] == 'debug':
-        level = logging.DEBUG
-    if conf['logger']['level'] == 'info':
-        level = logging.INFO
-    if conf['logger']['level'] == 'warning':
-        level = logging.WARNING
-    if conf['logger']['level'] == 'ERROR':
-        level = logging.ERROR
-    logger.setLevel(level)
+    log_levels = {'debug': logging.DEBUG,
+                 'info': logging.INFO,
+                 'warning': logging.WARNING,
+                 'error': logging.ERROR}
+    if conf['logger']['level'] not in log_levels.keys():
+        logger.setLevel(logging.INFO)
+    else:
+        logger.setLevel(log_levels[conf['logger']['level']])
     # create the logging file handler
     fh = logging.FileHandler(log_file)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -80,36 +79,46 @@ def send_msg(data, url):
     return response.json()['status']
 
 
+def create_heap(path):
+    empty_heap = {}
+    empty_heap['heap'] = []
+    json_heap = json.dumps(empty_heap)
+    with open(path,'w') as f:
+        f.write(json_heap)
+        f.close()
+    return True
+
 def check_heap(conf):
     heap_path = BASEDIR + '/' + conf['heap']['heap_file']
-    with open(heap_path, 'r') as f:
-        heap = f.read().split('\n')
-        if len(heap) != 0:
-            return True
-        else:
-            return False
+    try:
+        heap = json.loads(open(heap_path,'r').read())['heap']
+    except FileNotFoundError:
+        create_heap(heap_path)['heap']
+        heap = json.loads(open(heap_path,'r').read())['heap']
+    if len(heap)!=0:
+        return True
+    else:
+        return False
 
 
 def add_heap(data, conf):
     data['try_dt'] = datetime.today().timestamp()
     heap_path = BASEDIR + '/' + conf['heap']['heap_file']
-    with open(heap_path, 'a+') as f:
-        j_data = json.dumps(data)
-        f.write(j_data + '\n')
+    heap = json.loads(open(heap_path,'r').read())
+    heap['heap'].append(data)
+    with open(heap_path, 'w') as f:
+        j_data = json.dumps(heap)
+        f.write(j_data)
         f.close()
     return True
 
 
 def clean_heap(conf, url):
     heap_path = BASEDIR + '/' + conf['heap']['heap_file']
-    with open(heap_path, 'r') as f:
-        data = f.read().split('\n')
-        for dat in data:
-                if dat!='':
-                    j_dat = json.loads(dat)
-                    send_msg(j_dat, url)
-    f.close()
-    open(heap_path, 'w')
+    heap = json.loads(open(heap_path,'r').read())['heap']
+    for msg in heap:
+        send_msg(msg, url)
+    create_heap(heap_path)
     if not check_heap(conf):
         return True
     else:
@@ -132,6 +141,7 @@ def main():
             break
 
     if not_send:
+        check_heap(conf)
         add_heap(data, conf)
 
 

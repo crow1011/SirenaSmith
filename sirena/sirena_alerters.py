@@ -13,5 +13,4 @@ def tg(message, send_to, api_key, proxy='None'):
         return 'done'
     except Exception:
         logger.exception('TG Alerter: ')
-        logger.debug(str([message, send_to, api_key, proxy]))
         return 'error'
