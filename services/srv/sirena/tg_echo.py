@@ -1,6 +1,6 @@
 import telebot
 from telebot import apihelper
-import sirena_config
+from sirena import sirena_config
 
 conf = sirena_config.get_conf()
 if conf['alerters']['tg']['proxy']['enable']:

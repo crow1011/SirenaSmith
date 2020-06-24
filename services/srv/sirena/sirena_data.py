@@ -1,4 +1,4 @@
-import sirena_alerters, sirena_logger
+from sirena import sirena_alerters, sirena_logger
 from datetime import datetime
 
 logger = sirena_logger.get_logger()

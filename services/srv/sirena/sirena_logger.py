@@ -1,5 +1,5 @@
 import logging
-import sirena_config
+from sirena import sirena_config
 
 def get_logger():
     conf = sirena_config.get_conf()

@@ -21,4 +21,4 @@ heap:
 
 logger:
   log_path: "zbx_sirena.log"
-  level: info #info, denug, warning, error
+  level: warning #info, denug, warning, error

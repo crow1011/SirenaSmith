@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  server:
+    build: ./services/srv
+    command: python manage.py run -h 0.0.0.0
+    volumes:
+      - ./services/srv:/usr/src/app
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.env

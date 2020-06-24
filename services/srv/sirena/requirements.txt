@@ -1,0 +1,7 @@
+flask
+requests==2.20.0
+pyTelegramBotApi
+gunicorn
+pyyaml
+wheel
+pysocks

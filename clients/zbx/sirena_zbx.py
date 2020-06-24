@@ -129,7 +129,7 @@ class SirenaZbxClient(SirenaClient):
 
 if __name__ == '__main__':
     try:
-        zbx = SirenaZbxClient(config='zbx.yaml', heap='zbx.heap')
+        zbx = SirenaZbxClient(config='zbx.yaml', heap='zbx_sirena.heap')
         logger = zbx.get_logger()
         message = zbx.zbx_msg()
         result = zbx.send(message)

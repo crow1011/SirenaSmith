@@ -2,9 +2,9 @@
 *.conf
 clents/*/*.pyc
 venv/
-*log
-*/*.yaml
-.*/*
+*.log
+.idea
 *.yaml
-sirena/sirena.yaml
-clients/zbx/*.heap
+*.heap
+*dev.yml
+*.dev
