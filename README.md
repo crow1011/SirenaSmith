@@ -1,4 +1,4 @@
-## Sirena
+## Sirena !is not ready
 Decentralized alert system.
 
 ![Install guide](https://github.com/crow1011/SirenaSmith/wiki/install-guide)

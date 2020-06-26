@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  server:
+  srv:
     build: ./services/srv
     command: python manage.py run -h 0.0.0.0
     volumes:
