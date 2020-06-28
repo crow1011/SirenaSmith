@@ -11,6 +11,7 @@ def input_zabbix():
     if request.method == 'GET':
         return 'ok'
     if request.method == 'POST':
+        print(request.json)
         status = sirena_data.analyzer(request.json, conf)
         return jsonify({'status': str(status)})
 

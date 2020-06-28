@@ -1,11 +1,14 @@
 servers:
   - "http://127.0.0.1:5000/input/zabbix"
 #  - "http://127.0.0.1:5001/input/zabbix"
+
+recipient: zabbix
+
 alerters:
   tg:
     enable: True
   sirena_manager:
-    enable: True
+    enable: False
 
 secret:
   key: '123456' #required

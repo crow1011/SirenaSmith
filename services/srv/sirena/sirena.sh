@@ -6,15 +6,15 @@ source venv/bin/activate
 #installing python libs
 venv/bin/pip3 install -r requirements.txt
 deactivate
-#creating dir for sirena's configuration file
+#creating dir for sirena configuration file
 mkdir /etc/sirena
-#creating dir for sirena's logs
+#creating dir for sirena logs
 mkdir /var/log/sirena
-#creating sirena's log file
+#creating sirena log file
 touch /var/log/sirena/sirenasrv.log
-#backuping sirena's config file. If it's the first install this command returns error "File does not exist". It's ok
+#backuping sirena config file. If it's the first install this command returns error "File does not exist". It's ok
 mv /etc/sirena/sirena.yaml /etc/sirena/sirena.yaml.save
-#moving example sirena's config to /etc/sirena/sirena.yaml
+#moving example sirena config to /etc/sirena/sirena.yaml
 cp /opt/SirenaSmith/sirena/sirena.yaml.example /etc/sirena/sirena.yaml
 #creating systemd daemon
 sed 's/SIRENA_GROUP/'$GROUP'/g' /opt/SirenaSmith/configs/systemd/sirena.service.example > /etc/systemd/system/sirena.service

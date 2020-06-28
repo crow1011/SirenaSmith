@@ -61,6 +61,7 @@ class SirenaClient():
         data['type'] = 'new'
         data['sirena_problems'] = self.SIRENA_PROBLEMS
         data['alerters'] = self.conf['alerters']
+        data['recipient'] = self.conf['recipient']
         data['send_dt'] = datetime.today().timestamp()
         return data
 
