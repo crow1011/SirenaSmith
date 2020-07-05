@@ -12,15 +12,16 @@ class Case():
         if self.validation():
             self.case['input'] = self.msg['recipient']
             self.case['message'] = self.msg['message']
-            self.case['output'] = []
+            self.case['output'] = {}
             # gen enable alerters list
             for alerter in self.msg['alerters']:
                 if self.msg['alerters'][alerter]['enable']:
-                    self.case['output'].append(alerter)
+                    self.case['output'][alerter]=self.msg['alerters'][alerter]['send_to']
             #convert problems array to string
             self.case['problems'] = ''
             for problem in self.msg['sirena_problems']:
                 self.case['problems'] += str(problem)
+            print(self.case['problems'])
             self.case['send'] = self.msg['send_dt']
             #if alert now send first try client set timestamp
             if 'try_dt' in self.msg.keys():

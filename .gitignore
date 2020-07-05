@@ -8,3 +8,4 @@ venv/
 *.heap
 *dev.yml
 *.dev
+*.pytest_cache

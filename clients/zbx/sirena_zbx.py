@@ -65,13 +65,19 @@ class SirenaClient():
         data['send_dt'] = datetime.today().timestamp()
         return data
 
+    def check_response(self,response):
+        for key,val in response.items():
+            if val:
+                print(key)
+
     def send_msg(self, data, url):
         data_json = json.dumps(data)
         headers = {
             'Content-Type': 'application/json',
         }
         response = requests.post(url=url, data=data_json, headers=headers)
-        return response
+        res = self.check_response(response.json())
+        return res
 
     def heap_recreate(self):
         empty_heap = {}
@@ -104,6 +110,7 @@ class SirenaClient():
         for data in self.heap['heap']:
             self.send_msg(data, url)
         self.heap_recreate()
+
 
     def send(self, message):
         self.heap_init()
